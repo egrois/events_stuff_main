@@ -1,0 +1,35 @@
+package params;
+
+message Instrument
+{
+    required string         symbol = 1;
+    required bool           trading_enabled = 2;
+    required string         bt_input = 3;
+    required string         bt_input_type = 4;
+    required string         bt_channel = 5;
+    required bool           apply_trades = 6;
+    required bool           maintain_implied = 7;
+}
+
+message Strategy
+{
+    required string         name = 1;
+    repeated Instrument     instrument = 2;
+    required bool           trading_enabled = 3;
+    required int32          eloop_cpu_affinity = 4;
+    required bool           is_realtime = 5;
+    required int32          oob_logger_affinity = 6;
+    required string         oob_logger_file_prefix = 7;
+    required bool           log_timing = 8;
+    required string         date = 9;
+    required string         cme_channel_config = 10; 
+    required string         secdef_format = 11;
+    required string         secdef_root = 12;
+    required bool           enable_oob_log = 13;
+}
+
+message Params
+{
+    required Strategy strategy = 1;
+}
+

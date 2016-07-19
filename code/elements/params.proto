@@ -1,0 +1,150 @@
+package params;
+
+import public  "user.proto";
+
+message StackerSideConfig
+{
+    required string         ut_type = 1;
+    required double         ut_param1 = 2; 
+    required double         ut_param2 = 3; 
+    required double         ut_param3 = 4; 
+    required double         ut_tolerance = 5;
+}
+
+message StackerConfig
+{
+    required int32              unique_id = 1;
+    required int32              num_levels = 2;
+    required int32              max_order_size = 3;
+    required int32              skip_mask = 4;
+    required StackerSideConfig  bid_config = 5;  
+    required StackerSideConfig  ask_config = 6;  
+}
+
+message AutoStackerConfig
+{
+    required int32              num_levels = 1;
+    required int32              num_visible_levels = 2;
+    required int32              max_order_size = 3;
+    required int32              skip_mask = 4;  
+    required int32              initial_edge = 5;
+    required int32              ask_replenish_edge = 6; 
+    required bool               ask_replenish = 7;
+    required int32              ask_replenish_size = 8;     
+    required int32              bid_replenish_edge = 9; 
+    required bool               bid_replenish = 10;
+    required int32              bid_replenish_size = 11;     
+    required StackerSideConfig  bid_config = 12;  
+    required StackerSideConfig  ask_config = 13;  
+}
+
+message EcoComponent
+{
+    required string         bb_name = 1;
+    required string         bb_field = 2;
+    required bool           critical = 3; 
+}
+
+message EcoEvent
+{
+    required string         time = 1;
+    required string         eco_event_id =  2; 
+    repeated EcoComponent   eco_component = 3;
+}
+
+message EventTraderVariable
+{
+    required string bb_name_match = 1;
+    optional double survey_median = 2;
+    optional double survey_low = 3;
+    optional double survey_high = 4;
+    optional double survey_average = 5;
+    optional double last = 6; 
+}
+
+message EventTraderInstrument
+{
+    required string ticker = 1;
+    required double beta = 2;
+    required int32 max_position = 3;
+    required int32 penetration = 4;
+    required int32 stop_loss = 5;
+    required int32 stop_gain = 6;
+}
+
+message EventTrader
+{
+    required string                event_trader_id = 1;
+    required string                event_id = 2; 
+    repeated EventTraderInstrument event_trader_instrument = 3;
+    repeated EventTraderVariable   event_trader_variable = 4;
+}
+
+message Instrument
+{
+    required string              symbol = 1;
+    required bool                trading_enabled = 2;
+    required string              bt_input = 3;
+    required string              bt_input_type = 4;
+    required string              bt_channel = 5;
+    required bool                apply_trades = 6;
+    required bool                maintain_implied = 7;
+    required double              dollars_per_tick = 8;
+    required int32               stacker_config_id = 10;
+    required bool                enable_stacker = 11;
+    optional bool                enable_auto_stacker = 12;
+    required int32               stacker_update_interval = 13; 
+    optional int32               auto_stacker_update_interval = 14; 
+    required int32               stacker_edge = 15; 
+    repeated StackerConfig       stacker_config = 16;   
+    optional AutoStackerConfig   auto_stacker_config = 17;
+    optional user.UserInstrument user_instrument = 18;
+    required int32               pos_offset = 19;
+    required double              cash_offset = 20;
+}
+
+message Strategy
+{
+    required string         name = 1;
+    repeated Instrument     instrument = 2;
+    required bool           trading_enabled = 3;
+    required int32          eloop_cpu_affinity = 4;
+    required bool           is_realtime = 5;
+    required int32          oob_logger_affinity = 6;
+    required string         oob_logger_file_prefix = 7;
+    required bool           log_timing = 8;
+    required string         date = 9;
+    required string         cme_channel_config = 10; 
+    required string         secdef_format = 11;
+    required string         secdef_root = 12;
+    required bool           enable_oob_log = 13;
+    required string         cme_channel_side = 14;
+    required int32          net_interface = 15;
+    required int32          fs_delay1 = 16;
+    required int32          fs_delay2 = 17;
+    required int32          status_interval = 18;
+    required bool           fs_active = 19; 
+    required string         oe_file = 20;
+    required bool           use_bb = 21;
+    required string         bb_ip = 22;
+    required int32          bb_port = 23;
+    required string         bb_app_name = 24;
+    required int32          bb_affinity = 25;    
+    required string         bb_subscription_file = 26;    
+    required string         bb_fields_file = 27; 
+    repeated EcoEvent       eco_event = 28;
+    required string         cme_om_config = 29;
+    required bool           cme_om_active = 30; 
+    required bool           cme_feed_server_active = 31;
+    required string         cme_md_config = 32; 
+    optional user.UserStrategy   user_strategy = 33;
+    repeated EventTrader    event_trader = 34;
+    required bool           use_bt_events = 35;
+    required string         bt_events_file = 36;
+}
+
+message Params
+{
+    required Strategy strategy = 1;
+}
+

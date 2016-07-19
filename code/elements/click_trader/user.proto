@@ -1,0 +1,11 @@
+package user;
+
+message UserStrategy
+{
+    required int32 dummy = 1;
+};
+
+message UserInstrument
+{
+    required int32 dummy = 1;
+};

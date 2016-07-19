@@ -1,0 +1,193 @@
+strategy {
+  name: "click_trader"
+  instrument {
+    symbol: "ZBU6"
+    trading_enabled: true 
+    bt_input:           "/mnt/raw/cme/futures/"
+    bt_input_type: "sbe_cme_pcap"
+    bt_channel: "B_15"
+    apply_trades: true
+    maintain_implied: false
+    dollars_per_tick: 31.25
+    stacker_config_id: 0
+    enable_stacker: false
+    stacker_update_interval: 0
+    stacker_edge: 0
+    pos_offset: 0
+    cash_offset: 0.0
+  }
+  instrument {
+    symbol: "ZNU6"
+    trading_enabled: true
+    bt_input:           "/mnt/raw/cme/futures/"
+    bt_input_type: "sbe_cme_pcap"
+    bt_channel: "B_15"
+    apply_trades: true
+    maintain_implied: false
+    dollars_per_tick: 15.625
+    stacker_config_id: 0
+    enable_stacker: false
+    stacker_update_interval: 0
+    stacker_edge: 0
+    pos_offset: 0
+    cash_offset: 0.0
+  }
+  instrument {
+    symbol: "ZFU6"
+    trading_enabled: true
+    bt_input:           "/mnt/raw/cme/futures/"
+    bt_input_type: "sbe_cme_pcap"
+    bt_channel: "B_15"
+    apply_trades: true
+    maintain_implied: false
+    dollars_per_tick: 7.8125
+    stacker_config_id: 0
+    enable_stacker: false
+    stacker_update_interval: 0
+    stacker_edge: 0
+    pos_offset: 0
+    cash_offset: 0.0
+  }
+  instrument {
+    symbol: "ZTU6"
+    trading_enabled: true
+    bt_input:           "/mnt/raw/cme/futures/"
+    bt_input_type: "sbe_cme_pcap"
+    bt_channel: "B_15"
+    apply_trades: true
+    maintain_implied: false
+    dollars_per_tick: 15.625 
+    stacker_config_id: 0
+    enable_stacker: false
+    stacker_update_interval: 0
+    stacker_edge: 0
+    pos_offset: 0
+    cash_offset: 0.0
+  }
+  trading_enabled: true
+  eloop_cpu_affinity: 0
+  is_realtime: false
+  oob_logger_affinity: 0
+  oob_logger_file_prefix: "oob"
+  log_timing: false
+  date: "20160708"
+  cme_channel_config: "/mnt/raw/cme/futures/"
+  secdef_format: "ascii_daily"
+  secdef_root: "/mnt/raw/cme/futures/"
+  enable_oob_log: true 
+  cme_channel_side: "IA"
+  net_interface: 2
+  fs_delay1: 1000
+  fs_delay2: 0
+  status_interval: 1
+  fs_active: false
+  oe_file: "order_entry"
+  use_bb: false
+  bb_ip: "10.200.97.102"
+  bb_port: 8194
+  bb_app_name: "schonf:events"
+  bb_affinity: 0
+  bb_subscription_file: ""
+  bb_fields_file: ""
+  eco_event {
+    time: "08:30:00.000"
+    eco_event_id: "Payrolls_20160708"
+    eco_component {
+      bb_name: "AHE MOM% Index"
+      bb_field: "LAST_PRICE"
+      critical: true
+    }
+    eco_component {
+      bb_name: "AWH TOTL Index"
+      bb_field: "LAST_PRICE"
+      critical: true
+    }
+    eco_component {
+      bb_name: "USEMNCHG Index"
+      bb_field: "LAST_PRICE"
+      critical: false
+    }
+    eco_component {
+      bb_name: "USMMMNCH Index"
+      bb_field: "LAST_PRICE"
+      critical: false
+    }
+    eco_component {
+      bb_name: "NFP TCH Index"
+      bb_field: "LAST_PRICE"
+      critical: true
+    }
+    eco_component {
+      bb_name: "NFP PCH Index"
+      bb_field: "LAST_PRICE"
+      critical: true
+    }
+    eco_component {
+      bb_name: "NFP TCH Index"
+      bb_field: "ASK"
+      critical: true
+    }
+    eco_component {
+      bb_name: "ECONGECC Index"
+      bb_field: "LAST_PRICE"
+      critical: false
+    }
+    eco_component {
+      bb_name: "USUDMAER Index"
+      bb_field: "LAST_PRICE"
+      critical: true
+    }
+    eco_component {
+      bb_name: "USURTOT Index"
+      bb_field: "LAST_PRICE"
+      critical: true
+    }
+  }
+  cme_om_config: ""
+  cme_om_active: false
+  cme_feed_server_active: false
+  cme_md_config: ""
+  event_trader {
+    event_trader_id: "PAYROLLS_Z"
+    event_id: "Payrolls_20160708"
+    event_trader_instrument {
+      ticker: "ZTU6"
+      beta: 1.8396
+      max_position: 100
+      penetration: 1
+      stop_loss: 10
+      stop_gain: 4  
+    }
+    event_trader_instrument {
+      ticker: "ZFU6"
+      beta: 4.9293
+      max_position: 200
+      penetration: 1
+      stop_loss: 10
+      stop_gain: 5
+    }
+    event_trader_instrument {
+      ticker: "ZNU6"
+      beta: 8.3743
+      max_position: 200
+      penetration: 2
+      stop_loss: 6
+      stop_gain: 6
+    }
+    event_trader_instrument {
+      ticker: "ZBU6"
+      beta: 24.34
+      max_position: 50
+      penetration: 3
+      stop_loss: 5
+      stop_gain: 7
+    }
+    event_trader_variable {
+      bb_name_match: "NFP TCH Index"
+      survey_median: 180.0
+      last: 38.0
+    }
+  }
+  use_bt_events: true 
+  bt_events_file: "/mnt/storage/bt_events/events"
+}

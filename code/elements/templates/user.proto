@@ -1,0 +1,9 @@
+package user;
+
+message UserStrategy
+{
+};
+
+message UserInstrument
+{
+};

@@ -1,0 +1,48 @@
+10:31:53 processing 20151207 delay 1 secs
+ref_price nan
+min_price_increment 25.0
+Traceback (most recent call last):
+  File "snapshot_generator.py", line 537, in <module>
+    main( dt = datetime.strptime(args.date,'%Y%m%d'), symbols=args.symbol, sleep_max_sec=args.sleep, verbose=int(args.verbose)) 
+  File "snapshot_generator.py", line 527, in main
+    bt.run()
+  File "/home/pgrosul/git/code/pybt/pybt.py", line 649, in run
+    self.read_secdefs(q)
+  File "/home/pgrosul/git/code/pybt/pybt.py", line 511, in read_secdefs
+    self.states[symbol].book = pybt_book(symbol,self.states[symbol].secdef,apply_trades=self.apply_trades)
+  File "/home/pgrosul/git/code/pybt/pybt.py", line 68, in __init__
+    levels_away = int(( ref * 0.25 ) / self.min_price_increment)
+ValueError: cannot convert float NaN to integer
+python: can't open file 'python': [Errno 2] No such file or directory
+Closing remaining open files:/local/disk1/staging/ESH6_2_20151207.h5...done/local/disk1/staging/ESH6_0_20151207.h5...done/local/disk1/staging/ESH6_1_20151207.h5...done
+10:33:01 processing 20151207 delay 1 secs
+ref_price 209000.0
+min_price_increment 25.0
+Closing remaining open files:/local/disk1/staging/ESH6_2_20151228.h5...done/local/disk1/staging/ESH6_1_20151228.h5...done/local/disk1/staging/ESH6_0_20151228.h5...done
+10:42:34 processing 20151228 delay 1 secs
+ref_price 205000.0
+min_price_increment 25.0
+Closing remaining open files:/local/disk1/staging/ESZ5_0_20151214.h5...done/local/disk1/staging/ESZ5_2_20151214.h5...done/local/disk1/staging/ESZ5_1_20151214.h5...done
+10:37:42 processing 20151214 delay 1 secs
+ref_price 200000.0
+min_price_increment 25.0
+Closing remaining open files:/local/disk1/staging/ESH6_0_20151221.h5...done/local/disk1/staging/ESH6_2_20151221.h5...done/local/disk1/staging/ESH6_1_20151221.h5...done
+10:39:47 processing 20151221 delay 1 secs
+ref_price 200000.0
+min_price_increment 25.0
+Closing remaining open files:/local/disk1/staging/ESZ5_0_20151207.h5...done/local/disk1/staging/ESZ5_2_20151207.h5...done/local/disk1/staging/ESZ5_1_20151207.h5...done
+10:33:19 processing 20151207 delay 1 secs
+ref_price 209000.0
+min_price_increment 25.0
+Closing remaining open files:/local/disk1/staging/ESH6_2_20151214.h5...done/local/disk1/staging/ESH6_0_20151214.h5...done/local/disk1/staging/ESH6_1_20151214.h5...done
+10:37:28 processing 20151214 delay 1 secs
+ref_price 200000.0
+min_price_increment 25.0
+Closing remaining open files:/local/disk1/staging/ESH6_0_20160104.h5...done/local/disk1/staging/ESH6_2_20160104.h5...done/local/disk1/staging/ESH6_1_20160104.h5...done
+10:49:15 processing 20160104 delay 1 secs
+ref_price 200000.0
+min_price_increment 25.0
+Closing remaining open files:/local/disk1/staging/ESH6_0_20160111.h5...done/local/disk1/staging/ESH6_2_20160111.h5...done/local/disk1/staging/ESH6_1_20160111.h5...done
+10:49:23 processing 20160111 delay 0 secs
+ref_price 200000.0
+min_price_increment 25.0

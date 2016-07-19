@@ -1,0 +1,65 @@
+strategy {
+  name: "REPLACE"
+  instrument {
+    symbol: "ESH6"
+    trading_enabled: false
+    bt_input: "/mnt/raw/cme/futures/"
+    bt_input_type: "sbe_cme_pcap"
+    bt_channel: "B_15"
+    apply_trades: true
+    maintain_implied: false
+    dollars_per_tick: 12.5
+    stacker_config_id: 0
+    enable_stacker: true
+    stacker_update_interval: 1
+    stacker_edge: 1
+    stacker_config {
+      unique_id: 0
+      num_levels: 5
+      max_order_size: 200
+      bid_config {
+        ut_type: "linear"
+        ut_param1: 20.0
+        ut_param2: 20.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+      ask_config {
+        ut_type: "linear"
+        ut_param1: 20.0
+        ut_param2: 20.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+    }
+  }
+  trading_enabled: false
+  eloop_cpu_affinity: 14
+  is_realtime: true
+  oob_logger_affinity: 20
+  oob_logger_file_prefix: "oob"
+  log_timing: false
+  date: "20151221"
+  cme_channel_config: "/home/egadmin"
+  secdef_format: "ascii_daily"
+  secdef_root: "/home/egadmin"
+  enable_oob_log: true
+  cme_channel_side: "IB"
+  net_interface: 2
+  fs_delay1: 1000
+  fs_delay2: 0
+  status_interval: 1
+  fs_active: true
+  oe_file: "order_entry"
+  use_bb: true
+  bb_ip: "10.200.97.102"
+  bb_port: 8194
+  bb_app_name: "schonf:events"
+  bb_affinity: 16
+  bb_subscription_file: "/home/egadmin/code/elements/click_trader/symbols"
+  bb_fields_file: "/home/egadmin/code/elements/click_trader/fields"
+  cme_om_config: "/home/egadmin/code/elements/click_trader/oms_config.properties"
+  cme_om_active: false 
+  cme_feed_server_active: false
+  cme_md_config: "/home/egadmin/code/elements/click_trader/cme_md_config.properties"
+}

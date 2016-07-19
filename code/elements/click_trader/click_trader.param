@@ -1,0 +1,715 @@
+strategy {
+  name: "click_trader"
+  instrument {
+    symbol: "NQU6"
+    trading_enabled: false
+    bt_input: "/mnt/raw/cme/futures/"
+    bt_input_type: "sbe_cme_pcap"
+    bt_channel: "B_15"
+    apply_trades: true
+    maintain_implied: false
+    dollars_per_tick: 5.0
+    stacker_config_id: 0
+    enable_stacker: true
+    enable_auto_stacker: false
+    stacker_update_interval: 100000
+    auto_stacker_update_interval: 5
+    stacker_edge: 10
+    stacker_config {
+      unique_id: 0
+      num_levels: 500
+      max_order_size: 200
+      skip_mask: 4
+      bid_config {
+        ut_type: "linear"
+        ut_param1: 0.0
+        ut_param2: 0.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+      ask_config {
+        ut_type: "linear"
+        ut_param1: 0.01
+        ut_param2: 1.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+    }
+    auto_stacker_config {
+      num_levels: 500
+      num_visible_levels: 200
+      max_order_size: 200
+      skip_mask: 2
+      initial_edge: 10
+      ask_replenish_edge: 3
+      ask_replenish: false
+      ask_replenish_size: 1
+      bid_replenish_edge: 3
+      bid_replenish: false
+      bid_replenish_size: 1
+      bid_config {
+        ut_type: "linear"
+        ut_param1: 0.04
+        ut_param2: 1.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+      ask_config {
+        ut_type: "linear"
+        ut_param1: 0.04
+        ut_param2: 1.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+    }
+    pos_offset: 0
+    cash_offset: 0.0
+  }
+  instrument {
+    symbol: "ZTU6"
+    trading_enabled: false
+    bt_input: "/mnt/raw/cme/futures/"
+    bt_input_type: "sbe_cme_pcap"
+    bt_channel: "B_15"
+    apply_trades: true
+    maintain_implied: false
+    dollars_per_tick: 15.625
+    stacker_config_id: 0
+    enable_stacker: false
+    enable_auto_stacker: false
+    stacker_update_interval: 1
+    auto_stacker_update_interval: 5
+    stacker_edge: 5
+    stacker_config {
+      unique_id: 0
+      num_levels: 60
+      max_order_size: 200
+      skip_mask: 1
+      bid_config {
+        ut_type: "quadratic"
+        ut_param1: 0.1
+        ut_param2: 20.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+      ask_config {
+        ut_type: "quadratic"
+        ut_param1: 0.1
+        ut_param2: 20.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+    }
+    auto_stacker_config {
+      num_levels: 500
+      num_visible_levels: 40
+      max_order_size: 200
+      skip_mask: 2
+      initial_edge: 5
+      ask_replenish_edge: 5
+      ask_replenish: true
+      ask_replenish_size: 1
+      bid_replenish_edge: 5
+      bid_replenish: true
+      bid_replenish_size: 1
+      bid_config {
+        ut_type: "linear"
+        ut_param1: 0.01
+        ut_param2: 1.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+      ask_config {
+        ut_type: "linear"
+        ut_param1: 0.01
+        ut_param2: 1.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+    }
+    pos_offset: 0
+    cash_offset: 0.0
+  }
+  instrument {
+    symbol: "ESU6"
+    trading_enabled: false
+    bt_input: "/mnt/raw/cme/futures/"
+    bt_input_type: "sbe_cme_pcap"
+    bt_channel: "B_15"
+    apply_trades: true
+    maintain_implied: false
+    dollars_per_tick: 12.5
+    stacker_config_id: 0
+    enable_stacker: false
+    enable_auto_stacker: false
+    stacker_update_interval: 1
+    auto_stacker_update_interval: 1
+    stacker_edge: 1
+    stacker_config {
+      unique_id: 0
+      num_levels: 100
+      max_order_size: 50
+      skip_mask: 8
+      bid_config {
+        ut_type: "linear"
+        ut_param1: 0.02
+        ut_param2: 5.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+      ask_config {
+        ut_type: "linear"
+        ut_param1: 0.02
+        ut_param2: 5.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+    }
+    auto_stacker_config {
+      num_levels: 250
+      num_visible_levels: 100
+      max_order_size: 200
+      skip_mask: 1
+      initial_edge: 5
+      ask_replenish_edge: 2
+      ask_replenish: false
+      ask_replenish_size: 10
+      bid_replenish_edge: 2
+      bid_replenish: false
+      bid_replenish_size: 10
+      bid_config {
+        ut_type: "linear"
+        ut_param1: 0.04
+        ut_param2: 1.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+      ask_config {
+        ut_type: "linear"
+        ut_param1: 0.04
+        ut_param2: 1.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+    }
+    pos_offset: 0
+    cash_offset: 0.0
+  }
+  instrument {
+    symbol: "6EU6"
+    trading_enabled: false
+    bt_input: "/mnt/raw/cme/futures/"
+    bt_input_type: "sbe_cme_pcap"
+    bt_channel: "B_15"
+    apply_trades: true
+    maintain_implied: false
+    dollars_per_tick: 6.25
+    stacker_config_id: 0
+    enable_stacker: false
+    enable_auto_stacker: false
+    stacker_update_interval: 100000
+    auto_stacker_update_interval: 1
+    stacker_edge: 10
+    stacker_config {
+      unique_id: 0
+      num_levels: 500
+      max_order_size: 200
+      skip_mask: 4
+      bid_config {
+        ut_type: "linear"
+        ut_param1: 0.0
+        ut_param2: 0.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+      ask_config {
+        ut_type: "linear"
+        ut_param1: 0.01
+        ut_param2: 1.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+    }
+    auto_stacker_config {
+      num_levels: 500
+      num_visible_levels: 500
+      max_order_size: 200
+      skip_mask: 2
+      initial_edge: 5
+      ask_replenish_edge: 1
+      ask_replenish: true
+      ask_replenish_size: 1
+      bid_replenish_edge: 1
+      bid_replenish: true
+      bid_replenish_size: 1
+      bid_config {
+        ut_type: "linear"
+        ut_param1: 0.01
+        ut_param2: 1.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+      ask_config {
+        ut_type: "linear"
+        ut_param1: 0.01
+        ut_param2: 1.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+    }
+    pos_offset: 0
+    cash_offset: 0.0
+  }
+  instrument {
+    symbol: "ZBU6"
+    trading_enabled: false
+    bt_input: "/mnt/raw/cme/futures/"
+    bt_input_type: "sbe_cme_pcap"
+    bt_channel: "B_15"
+    apply_trades: true
+    maintain_implied: false
+    dollars_per_tick: 31.25
+    stacker_config_id: 0
+    enable_stacker: false
+    enable_auto_stacker: false
+    stacker_update_interval: 100000
+    auto_stacker_update_interval: 5
+    stacker_edge: 2
+    stacker_config {
+      unique_id: 0
+      num_levels: 100
+      max_order_size: 500
+      skip_mask: 2
+      bid_config {
+        ut_type: "linear"
+        ut_param1: 0.1
+        ut_param2: 2.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+      ask_config {
+        ut_type: "linear"
+        ut_param1: 0.1
+        ut_param2: 2.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+    }
+    auto_stacker_config {
+      num_levels: 100
+      num_visible_levels: 80
+      max_order_size: 200
+      skip_mask: 1
+      initial_edge: 5
+      ask_replenish_edge: 1
+      ask_replenish: false
+      ask_replenish_size: 5
+      bid_replenish_edge: 1
+      bid_replenish: false
+      bid_replenish_size: 5
+      bid_config {
+        ut_type: "quadratic"
+        ut_param1: 0.005
+        ut_param2: 4.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+      ask_config {
+        ut_type: "quadratic"
+        ut_param1: 0.005
+        ut_param2: 4.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+    }
+    pos_offset: 0
+    cash_offset: 0.0
+  }
+  instrument {
+    symbol: "ZFU6"
+    trading_enabled: false
+    bt_input: "/mnt/raw/cme/futures/"
+    bt_input_type: "sbe_cme_pcap"
+    bt_channel: "B_15"
+    apply_trades: true
+    maintain_implied: false
+    dollars_per_tick: 7.8125
+    stacker_config_id: 0
+    enable_stacker: false
+    enable_auto_stacker: false
+    stacker_update_interval: 100000
+    auto_stacker_update_interval: 5
+    stacker_edge: 2
+    stacker_config {
+      unique_id: 0
+      num_levels: 100
+      max_order_size: 500
+      skip_mask: 2
+      bid_config {
+        ut_type: "linear"
+        ut_param1: 0.1
+        ut_param2: 4.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+      ask_config {
+        ut_type: "linear"
+        ut_param1: 0.1
+        ut_param2: 4.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+    }
+    auto_stacker_config {
+      num_levels: 100
+      num_visible_levels: 40
+      max_order_size: 200
+      skip_mask: 2
+      initial_edge: 5
+      ask_replenish_edge: 2
+      ask_replenish: false
+      ask_replenish_size: 10
+      bid_replenish_edge: 2
+      bid_replenish: false
+      bid_replenish_size: 10
+      bid_config {
+        ut_type: "linear"
+        ut_param1: 0.1
+        ut_param2: 2.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+      ask_config {
+        ut_type: "linear"
+        ut_param1: 0.1
+        ut_param2: 2.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+    }
+    pos_offset: 0
+    cash_offset: 0.0
+  }
+  instrument {
+    symbol: "ZNU6"
+    trading_enabled: false
+    bt_input: "/mnt/raw/cme/futures/"
+    bt_input_type: "sbe_cme_pcap"
+    bt_channel: "B_15"
+    apply_trades: true
+    maintain_implied: false
+    dollars_per_tick: 15.625
+    stacker_config_id: 0
+    enable_stacker: false
+    enable_auto_stacker: false
+    stacker_update_interval: 100000
+    auto_stacker_update_interval: 5
+    stacker_edge: 5
+    stacker_config {
+      unique_id: 0
+      num_levels: 120
+      max_order_size: 500
+      skip_mask: 2
+      bid_config {
+        ut_type: "linear"
+        ut_param1: 0.2
+        ut_param2: 5.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+      ask_config {
+        ut_type: "linear"
+        ut_param1: 0.2
+        ut_param2: 5.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+    }
+    auto_stacker_config {
+      num_levels: 120
+      num_visible_levels: 100
+      max_order_size: 500
+      skip_mask: 2
+      initial_edge: 5
+      ask_replenish_edge: 1
+      ask_replenish: false
+      ask_replenish_size: 2
+      bid_replenish_edge: 1
+      bid_replenish: false
+      bid_replenish_size: 2
+      bid_config {
+        ut_type: "quadratic"
+        ut_param1: 0.005
+        ut_param2: 4.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+      ask_config {
+        ut_type: "quadratic"
+        ut_param1: 0.005
+        ut_param2: 4.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+    }
+    pos_offset: 0
+    cash_offset: 0.0
+  }
+  instrument {
+    symbol: "CLQ6"
+    trading_enabled: false
+    bt_input: "/mnt/raw/cme/futures/"
+    bt_input_type: "sbe_cme_pcap"
+    bt_channel: "B_15"
+    apply_trades: true
+    maintain_implied: false
+    dollars_per_tick: 10.0
+    stacker_config_id: 0
+    enable_stacker: false
+    enable_auto_stacker: false
+    stacker_update_interval: 1
+    auto_stacker_update_interval: 1
+    stacker_edge: 0
+    stacker_config {
+      unique_id: 0
+      num_levels: 30
+      max_order_size: 200
+      skip_mask: 1
+      bid_config {
+        ut_type: "quadratic"
+        ut_param1: 0.02
+        ut_param2: 4.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+      ask_config {
+        ut_type: "quadratic"
+        ut_param1: 0.02
+        ut_param2: 4.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+    }
+    auto_stacker_config {
+      num_levels: 300
+      num_visible_levels: 200
+      max_order_size: 200
+      skip_mask: 2
+      initial_edge: 10
+      ask_replenish_edge: 5
+      ask_replenish: false
+      ask_replenish_size: 1
+      bid_replenish_edge: 5
+      bid_replenish: false
+      bid_replenish_size: 1
+      bid_config {
+        ut_type: "linear"
+        ut_param1: 0.04
+        ut_param2: 1.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+      ask_config {
+        ut_type: "linear"
+        ut_param1: 0.04
+        ut_param2: 1.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+    }
+    pos_offset: 0
+    cash_offset: 0.0
+  }
+  instrument {
+    symbol: "NGQ6"
+    trading_enabled: false
+    bt_input: "/mnt/raw/cme/futures/"
+    bt_input_type: "sbe_cme_pcap"
+    bt_channel: "B_15"
+    apply_trades: true
+    maintain_implied: false
+    dollars_per_tick: 10.0
+    stacker_config_id: 0
+    enable_stacker: false
+    enable_auto_stacker: false
+    stacker_update_interval: 100000
+    auto_stacker_update_interval: 5
+    stacker_edge: 0
+    stacker_config {
+      unique_id: 0
+      num_levels: 200
+      max_order_size: 200
+      skip_mask: 3
+      bid_config {
+        ut_type: "quadratic"
+        ut_param1: 0.002
+        ut_param2: 1.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+      ask_config {
+        ut_type: "quadratic"
+        ut_param1: 0.002
+        ut_param2: 1.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+    }
+    auto_stacker_config {
+      num_levels: 500
+      num_visible_levels: 400
+      max_order_size: 200
+      skip_mask: 1
+      initial_edge: 10
+      ask_replenish_edge: 5
+      ask_replenish: false
+      ask_replenish_size: 1
+      bid_replenish_edge: 5
+      bid_replenish: false
+      bid_replenish_size: 1
+      bid_config {
+        ut_type: "linear"
+        ut_param1: 0.02
+        ut_param2: 1.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+      ask_config {
+        ut_type: "linear"
+        ut_param1: 0.02
+        ut_param2: 1.0
+        ut_param3: 0.0
+        ut_tolerance: 0.0
+      }
+    }
+    pos_offset: 0
+    cash_offset: 0.0
+  }
+  trading_enabled: false
+  eloop_cpu_affinity: 14
+  is_realtime: true
+  oob_logger_affinity: 20
+  oob_logger_file_prefix: "oob"
+  log_timing: false
+  date: "20160712"
+  cme_channel_config: "/home/egadmin"
+  secdef_format: "ascii_daily"
+  secdef_root: "/home/egadmin"
+  enable_oob_log: true
+  cme_channel_side: "IB"
+  net_interface: 26
+  fs_delay1: 1000
+  fs_delay2: 0
+  status_interval: 1
+  fs_active: true
+  oe_file: "order_entry"
+  use_bb: false 
+  bb_ip: "69.184.252.3"
+  bb_port: 8194
+  bb_app_name: "schonf:events"
+  bb_affinity: 16
+  bb_subscription_file: ""
+  bb_fields_file: ""
+  cme_om_config: "/home/egadmin/code/elements/click_trader/oms_config.properties"
+  cme_om_active: false
+  cme_feed_server_active: true
+  cme_md_config: "/home/egadmin/code/elements/click_trader/cme_md_config.properties"
+  use_bt_events: true 
+  bt_events_file: "/home/egadmin/code/elements/click_trader/events"
+  user_strategy {
+    dummy: 1
+  }
+  eco_event {
+    time: "16:00:00.000"
+    eco_event_id: "BakerHughes_20160708"
+    eco_component {
+      bb_name: "BAKENAM Index"
+      bb_field: "LAST_PRICE"
+      critical: true
+    }
+  }
+  eco_event {
+    time: "16:10:00.000"
+    eco_event_id: "Payrolls_20160708"
+    eco_component {
+      bb_name: "AHE MOM% Index"
+      bb_field: "LAST_PRICE"
+      critical: true
+    }
+    eco_component {
+      bb_name: "AWH TOTL Index"
+      bb_field: "LAST_PRICE"
+      critical: true
+    }
+    eco_component {
+      bb_name: "USEMNCHG Index"
+      bb_field: "LAST_PRICE"
+      critical: false
+    }
+    eco_component {
+      bb_name: "USMMMNCH Index"
+      bb_field: "LAST_PRICE"
+      critical: false
+    }
+    eco_component {
+      bb_name: "NFP TCH Index"
+      bb_field: "LAST_PRICE"
+      critical: true
+    }
+    eco_component {
+      bb_name: "NFP PCH Index"
+      bb_field: "LAST_PRICE"
+      critical: true
+    }
+    eco_component {
+      bb_name: "NFP TCH Index"
+      bb_field: "ASK"
+      critical: true
+    }
+    eco_component {
+      bb_name: "ECONGECC Index"
+      bb_field: "LAST_PRICE"
+      critical: false
+    }
+    eco_component {
+      bb_name: "USUDMAER Index"
+      bb_field: "LAST_PRICE"
+      critical: true
+    }
+    eco_component {
+      bb_name: "USURTOT Index"
+      bb_field: "LAST_PRICE"
+      critical: true
+    }
+  }
+  event_trader {
+    event_trader_id: "PAYROLLS_Z"
+    event_id: "Payrolls_20160708"
+    event_trader_instrument 
+    { 
+        ticker:"ZTU6"
+        beta: 1.8396
+    }
+    event_trader_instrument 
+    { 
+        ticker:"ZFU6"
+        beta: 4.9293 
+    }
+    event_trader_instrument 
+    { 
+        ticker:"ZNU6"
+        beta: 8.3743
+    }
+    event_trader_instrument 
+    { 
+        ticker:"ZBU6" 
+        beta: 24.34
+    }
+    event_trader_variable 
+    { 
+        bb_name_match: "NFP TCH Index" 
+        survey_median: 180.0
+        last: 38.0
+    }
+  }
+}

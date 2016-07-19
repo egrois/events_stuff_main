@@ -1,0 +1,7 @@
+mock_exchange/*.pb.*
+*.pb.*
+test/elements_test
+test/test_messenger_bin
+test/test_messenger_text
+test/log_test_file
+

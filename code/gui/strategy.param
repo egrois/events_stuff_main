@@ -1,0 +1,50 @@
+strategy {
+  name: "GAME_CHANGER"
+  instrument {
+    symbol: "ESZ5"
+    trading_enabled: false
+    bt_input: "/mnt/raw/cme/futures/"
+    bt_input_type: "sbe_cme_pcap"
+    bt_channel: "B_15"
+    apply_trades: true
+    maintain_implied: true
+  }
+  instrument {
+    symbol: "GEZ5"
+    trading_enabled: true
+    bt_input: "/mnt/raw/cme/futures/"
+    bt_input_type: "sbe_cme_pcap"
+    bt_channel: "B_15"
+    apply_trades: true
+    maintain_implied: false
+  }
+  instrument {
+    symbol: "NQZ5"
+    trading_enabled: true
+    bt_input: "yyuyuyuuy"
+    bt_input_type: "sbe_cme_pcap"
+    bt_channel: "B_15"
+    apply_trades: true
+    maintain_implied: true
+  }
+  instrument {
+    symbol: "CLZ5"
+    trading_enabled: true
+    bt_input: "/mnt/raw/cme/futures/"
+    bt_input_type: "sbe_cme_pcap"
+    bt_channel: "B_15"
+    apply_trades: false
+    maintain_implied: false
+  }
+  trading_enabled: false
+  eloop_cpu_affinity: 4
+  is_realtime: true
+  oob_logger_affinity: 3
+  oob_logger_file_prefix: "oob"
+  log_timing: true
+  date: "20151002"
+  cme_channel_config: ""
+  secdef_format: "ascii_daily"
+  secdef_root: ""
+  enable_oob_log: false
+}
